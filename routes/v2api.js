@@ -9,10 +9,11 @@ const {
 } = require('../services');
 
 const { generateThing } = require('../utils/generateThing');
+const { validateQuery } = require('../utils/validateQuery');
 
 const api = Router();
 
-api.get("/things", (req, res) => {
+api.get("/things", validateQuery, (req, res) => {
   getThings(req.query)
     .then(things => {
       res.json(things);

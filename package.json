@@ -1,6 +1,6 @@
 {
-  "name": "things-v1",
-  "version": "1.0.0",
+  "name": "things-mongo",
+  "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {

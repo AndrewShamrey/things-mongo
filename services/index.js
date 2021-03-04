@@ -7,7 +7,10 @@ exports.createThing = async function ({ name, body } = {}) {
 
 exports.getThings = async function (query) {
   const page = +query.page;
-  let limit = +query.limit || 10;
+  let limit = +query.limit;
+  if (page && !limit) {
+    limit = 10;
+  }
   const skip = limit * (page - 1);
   let allThings = [];
   const cursor = Thing.find({ _deletedAt: null }).select('_id name body').skip(skip).limit(limit).cursor();
